@@ -3,17 +3,17 @@
 import * as React from "react"
 import { type RowSelectionState } from "@tanstack/react-table"
 
-import { createPacmanColumns } from "./components/columns"
-import { AiInspector } from "./components/ai-inspector"
+import { createPacmanColumns } from "../components/columns"
+import { AiInspector } from "../components/ai-inspector"
 import {
   ArcadeBottomHud,
   ArcadeStatusOverlay,
   ArcadeTopHud,
-} from "./components/arcade-hud"
-import { PacmanDataTable } from "./components/data-table"
-import { COLS, ROWS } from "./constants"
-import { type MazeRow } from "./types"
-import { usePacmanGame } from "./hooks/use-pacman-game"
+} from "../components/arcade-hud"
+import { PacmanDataTable } from "../components/data-table"
+import { COLS, ROWS } from "../lib/constants"
+import { type MazeRow } from "../lib/types"
+import { usePacmanGame } from "@/hooks/use-pacman-game"
 
 const STATIC_MAZE_DATA: MazeRow[] = Array.from(
   { length: ROWS },
@@ -23,7 +23,7 @@ const STATIC_MAZE_DATA: MazeRow[] = Array.from(
   })
 )
 
-export default function OgPacmanPage() {
+export default function PacmanPage() {
   const {
     store,
     game,

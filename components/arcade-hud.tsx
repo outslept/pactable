@@ -1,7 +1,7 @@
 import { Press_Start_2P } from "next/font/google"
-import { LEVEL_SPECS } from "../constants"
-import { OgFruitSprite, OgPacmanSprite } from "./sprites"
-import { GameStatus, LevelNumber } from "../types"
+import { LEVEL_SPECS } from "../lib/constants"
+import { FruitSprite, PacmanSprite } from "./sprites"
+import { GameStatus, LevelNumber } from "../lib/types"
 
 export const arcadeFont = Press_Start_2P({
   weight: "400",
@@ -48,13 +48,13 @@ export function ArcadeBottomHud({
     <div className="w-full max-w-140 flex items-center justify-between px-3 mt-1.5 h-6">
       <div className="flex items-center gap-2">
         {Array.from({ length: Math.max(0, lives - 1) }).map((_, i) => (
-          <OgPacmanSprite key={i} dir="LEFT" frame={1} size="hud" />
+          <PacmanSprite key={i} dir="LEFT" frame={1} size="hud" />
         ))}
       </div>
 
       <div className="flex items-center gap-1.5 flex-row-reverse">
         {levelProgression.map((lvl) => (
-          <OgFruitSprite key={lvl} fruit={LEVEL_SPECS[lvl].fruit} size="hud" />
+          <FruitSprite key={lvl} fruit={LEVEL_SPECS[lvl].fruit} size="hud" />
         ))}
       </div>
     </div>

@@ -1,16 +1,16 @@
 "use client"
 
 import * as React from "react"
-import { packCellState } from "../cell-packing"
-import { LEVEL_SPECS } from "../constants"
-import { createLevelState, stepGameTick } from "../engine"
-import { arcadeSound } from "../sound"
+import { packCellState } from "../lib/cell-packing"
+import { LEVEL_SPECS } from "../lib/constants"
+import { createLevelState, stepGameTick } from "../lib/engine"
+import { arcadeSound } from "../lib/sound"
 import {
   type Direction,
   type GameState,
   type LevelNumber,
   type SoundEvent,
-} from "../types"
+} from "../lib/types"
 
 export class PacmanStore {
   private state: GameState

@@ -1,12 +1,12 @@
-import { LEVEL_SPECS } from "../constants"
-import { GameState, LevelNumber } from "../types"
+import { LEVEL_SPECS } from "../lib/constants"
+import { GameState, LevelNumber } from "../lib/types"
 import { arcadeFont } from "./arcade-hud"
 import {
-  OgFruitSprite,
-  OgGhostSprite,
-  OgPausePlayIcon,
-  OgResetIcon,
-  OgSoundIcon,
+  FruitSprite,
+  GhostSprite,
+  PausePlayIcon,
+  ResetIcon,
+  SoundIcon,
 } from "./sprites"
 
 interface AiInspectorProps {
@@ -65,7 +65,7 @@ export function AiInspector({
                 : "border-[#2121ff] bg-black hover:border-[#ffff00]"
             }`}
           >
-            <OgPausePlayIcon paused={isPaused} />
+            <PausePlayIcon paused={isPaused} />
           </button>
 
           <button
@@ -75,7 +75,7 @@ export function AiInspector({
             aria-label="Reset Game"
             className="w-8 h-8 border-2 border-[#2121ff] bg-black hover:border-[#ff0000] flex items-center justify-center transition-colors cursor-pointer"
           >
-            <OgResetIcon />
+            <ResetIcon />
           </button>
 
           <button
@@ -89,7 +89,7 @@ export function AiInspector({
                 : "border-[#ff0000]/70 bg-black hover:border-[#ff0000]"
             }`}
           >
-            <OgSoundIcon enabled={soundEnabled} />
+            <SoundIcon enabled={soundEnabled} />
           </button>
         </div>
       </div>
@@ -98,7 +98,7 @@ export function AiInspector({
         <div className="flex items-center justify-between">
           <span className="text-[#ffb8ae] text-[9px]">DIP LEVEL SELECT</span>
           <div className="flex items-center gap-1.5">
-            <OgFruitSprite fruit={spec.fruit} size="hud" />
+            <FruitSprite fruit={spec.fruit} size="hud" />
             <span className="text-[#ffb8ff] text-[9px]">
               {spec.fruitPoints}PTS
             </span>
@@ -183,7 +183,7 @@ export function AiInspector({
               key={g.id}
               className="border border-[#2121ff]/70 p-2 bg-black flex items-center gap-2"
             >
-              <OgGhostSprite
+              <GhostSprite
                 ghost={g}
                 tick={game.tick}
                 frightenedTimer={game.frightenedTimer}

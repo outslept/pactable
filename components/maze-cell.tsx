@@ -1,20 +1,20 @@
 "use client"
 
 import * as React from "react"
-import { COLS, ROWS } from "../constants"
-import { useCellPackedState, type PacmanStore } from "../hooks/use-pacman-game"
+import { COLS, ROWS } from "../lib/constants"
+import { useCellPackedState, type PacmanStore } from "@/hooks/use-pacman-game"
 import {
-  OgFruitSprite,
-  OgGhostSprite,
-  OgPacmanSprite,
+  FruitSprite,
+  GhostSprite,
+  PacmanSprite,
 } from "./sprites"
-import { unpackCellState } from "../cell-packing"
+import { unpackCellState } from "../lib/cell-packing"
 
 const WALL_INSET = 5
 const WALL_BORDER = 2
 const CORNER_SIZE = WALL_INSET + WALL_BORDER
 
-function OgWallTile({
+function WallTile({
   board,
   r,
   c,
@@ -156,7 +156,7 @@ export const PacmanCell = React.memo(function PacmanCell({
   return (
     <div className="relative w-5 h-5 bg-black flex items-center justify-center overflow-visible select-none">
       {tile === 1 && (
-        <OgWallTile
+        <WallTile
           board={store.getState().board}
           r={r}
           c={c}
@@ -180,7 +180,7 @@ export const PacmanCell = React.memo(function PacmanCell({
 
       {activeFruit && (
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
-          <OgFruitSprite fruit={activeFruit} size="arcade" />
+          <FruitSprite fruit={activeFruit} size="arcade" />
         </div>
       )}
 
@@ -196,13 +196,13 @@ export const PacmanCell = React.memo(function PacmanCell({
 
       {hasPac && (
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
-          <OgPacmanSprite dir={pacDir} frame={pacFrame} size="arcade" />
+          <PacmanSprite dir={pacDir} frame={pacFrame} size="arcade" />
         </div>
       )}
 
       {ghost && (
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none">
-          <OgGhostSprite
+          <GhostSprite
             ghost={ghost}
             tick={ghostAnim}
             frightenedTimer={ghostFlash ? 2 : 99}

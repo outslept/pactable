@@ -19,8 +19,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { ROWS } from "../constants"
-import { features, type PacmanTableFeatures } from "../data-table-features"
+import { ROWS } from "../lib/constants"
+import { features, type PacmanTableFeatures } from "../lib/data-table-features"
 
 interface PacmanDataTableProps<TData extends RowData> {
   readonly columns: ColumnDef<PacmanTableFeatures, TData>[]

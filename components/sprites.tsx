@@ -2,8 +2,8 @@ import {
   GHOST_BODY_FRAMES,
   PACMAN_DEATH_FRAMES,
   PACMAN_SPRITE_FRAMES,
-} from "./sprite-frames"
-import { type Direction, type FruitType, type Ghost } from "../types"
+} from "../lib/sprite-frames"
+import { type Direction, type FruitType, type Ghost } from "../lib/types"
 
 function rotateMatrix(
   matrix: readonly string[],
@@ -25,7 +25,7 @@ function rotateMatrix(
   return res
 }
 
-export function OgPacmanSprite({
+export function PacmanSprite({
   dir,
   frame,
   size = "arcade",
@@ -77,7 +77,7 @@ export function OgPacmanSprite({
   )
 }
 
-export function OgGhostSprite({
+export function GhostSprite({
   ghost,
   tick,
   frightenedTimer,
@@ -173,7 +173,7 @@ export function OgGhostSprite({
   )
 }
 
-export function OgFruitSprite({
+export function FruitSprite({
   fruit,
   size = "arcade",
 }: {
@@ -261,7 +261,7 @@ export function OgFruitSprite({
   )
 }
 
-export function OgPausePlayIcon({ paused }: { readonly paused: boolean }) {
+export function PausePlayIcon({ paused }: { readonly paused: boolean }) {
   return (
     <svg
       viewBox="0 0 12 12"
@@ -285,7 +285,7 @@ export function OgPausePlayIcon({ paused }: { readonly paused: boolean }) {
   )
 }
 
-export function OgResetIcon() {
+export function ResetIcon() {
   return (
     <svg
       viewBox="0 0 12 12"
@@ -305,7 +305,7 @@ export function OgResetIcon() {
   )
 }
 
-export function OgSoundIcon({ enabled }: { readonly enabled: boolean }) {
+export function SoundIcon({ enabled }: { readonly enabled: boolean }) {
   return (
     <svg
       viewBox="0 0 12 12"

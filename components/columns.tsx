@@ -1,10 +1,10 @@
 "use client"
 
 import { createColumnHelper, type ColumnDef } from "@tanstack/react-table"
-import { COLS } from "../constants"
-import { type PacmanTableFeatures } from "../data-table-features"
-import { type PacmanStore } from "@/app/hooks/use-pacman-game"
-import { type MazeRow } from "@/app/types"
+import { COLS } from "../lib/constants"
+import { type PacmanTableFeatures } from "../lib/data-table-features"
+import { type PacmanStore } from "@/hooks/use-pacman-game"
+import { type MazeRow } from "@/lib/types"
 import { PacmanCell } from "./maze-cell"
 
 const columnHelper = createColumnHelper<PacmanTableFeatures, MazeRow>()
